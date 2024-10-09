@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="circle"></div>
+        <svg>
+            <filter id="gooey">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+                <feColorMatrix values="
+                1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 50 -10"/>
+            </filter> 
+        </svg>
+
+
+        <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+        <script src="index.js"></script>
+        <script>
+            let circle = document.querySelector('.circle');
+            circle.addEventListener('click', function() {
+                for (let i = 0; i < 50; i++) {
+                    let particles = document.createElement('i');
+                    let randomX = (Math.random() - 0.5) * window.innerWidth;
+                    let randomY = (Math.random() - 0.5) * window.innerHeight;
+                    let randomSize = Math.random() * 60 + 10;
+                    let duration = Math.random() * 3 + 2;
+
+                    particles.classList.add('particles');
+                    particles.style.setProperty('--x', randomX + 'px');
+                    particles.style.setProperty('--y', randomY + 'px');
+                    particles.style.width = randomSize + 'px';
+                    particles.style.height = randomSize + 'px';
+                    particles.style.animation = `animate ${duration}s ease forwards`;
+
+                    document.body.appendChild(particles);
+
+                    setTimeout(function() {
+                        particles.remove();
+                    }, 5000)
+                }
+            });
+        </script>
+    </body>
+</html>

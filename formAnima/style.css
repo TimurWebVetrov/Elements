@@ -1,0 +1,133 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+}
+
+.container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        position: absolute;
+        inset: 0;
+        border: 2px solid #fff;
+        transition: 0.5s;
+    }
+
+    i:nth-child(1) {
+        border-radius: 42% 58% 75% 25% / 30% 30% 70% 70% ;
+        animation: animate 6s linear infinite;
+    }
+    i:nth-child(2) {
+        border-radius: 63% 37% 44% 56% / 62% 36% 64% 38% ;
+        animation: animate 10s linear infinite;
+    }
+    i:nth-child(3) {
+        border-radius: 45% 55% 16% 84% / 43% 60% 40% 57% ;
+        animation: animate2 5s linear infinite;
+    }
+}
+
+.container:hover  {
+    i {
+        border: 6px solid var(--clr);
+        filter: drop-shadow(0 0 20px var(--clr));
+    }
+}
+
+.login {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    h2 {
+        font-size: 2em;
+        color: #fff;
+    }
+
+    .inputBox {
+        position: relative;
+        width: 100%;
+
+        input {
+            position: relative;
+            width: 100%;
+            padding: 12px 20px;
+            background: transparent;
+            border: 2px solid #fff;
+            border-radius: 40px;
+            font-size: 1.2em;
+            color: #fff;
+            box-shadow: none;
+            outline: none;
+        }
+        input::placeholder {
+            color: #fff;
+            opacity: 0.5;
+        }
+
+        input[type=submit] {
+            background: linear-gradient(45deg, #ff357a, #fff172);
+            border: none;
+            cursor: pointer;
+            transition: .5s;
+        }
+        input[type=submit]:hover {
+            scale: 1.1;
+        }
+        input[type=submit]:active {
+            scale: 0.9;
+        }
+    }
+
+    .links {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="notes">
+                <div id="create">
+                    <i class="fa-solid fa-plus"></i>
+                    <div class="createBox">
+                        <div class="innerCreateBox">
+                            <textarea placeholder="Write Here. . ." id="userInput" maxlength="160"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+        <script src="index.js"></script>
+        <script>
+            let createBox = document.getElementsByClassName('createBox')[0]; 
+            let notes = document.getElementsByClassName('notes')[0];
+            let input = document.getElementById('userInput');
+
+            document.getElementById('create').addEventListener('click', function() {
+                createBox.style.display = "block";
+                input.focus();
+            });
+
+            createBox.addEventListener('keydown', content);
+
+            function content(e) {
+                if (e.key === 'Enter') { 
+                    divStyle(input.value);
+                    input.value = "";
+                    createBox.style.display = "none";
+                }
+            }
+
+            function color() {
+                let r = Math.floor(Math.random() * 128) + 128; 
+                let g = Math.floor(Math.random() * 128) + 128; 
+                let b = Math.floor(Math.random() * 128) + 128; 
+                
+                return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()}`;
+            }
+
+            function divStyle(text) {
+                let div = document.createElement("div");
+                div.classList.add('note'); 
+                div.innerHTML = `<div class='details'>
+                                <h3>${text}</h3> 
+                                </div>`;
+
+                div.addEventListener('dblclick', function() {
+                    div.remove();
+                });
+
+                div.setAttribute('style', `background-color: ${color()}`);
+
+                notes.appendChild(div);
+}
+        </script>
+    </body>
+</html>

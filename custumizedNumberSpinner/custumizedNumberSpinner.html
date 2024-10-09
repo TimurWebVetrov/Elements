@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="box">
+            <div class="spinner">
+                <span id="output">0</span>
+                <div class="progress">
+                    <div id="meter"></div>
+                </div>
+                <button class="btn plus" onclick="plus()">+</button>
+                <button class="btn minus" onclick="minus()">-</button>
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+        <script>
+            let x = 0;
+            let output = document.getElementById("output");
+            let meter = document.getElementById("meter");
+            output.innerHTML = x;
+
+            function plus() {
+                if (x >= 10) {
+                    return false;
+                } else if (x > 7) {
+                    meter.style.filter = "drop-shadow(0 0 2.5px rgb(230, 23, 23)) drop-shadow(0 0 10px rgb(230, 23, 23))";
+                    meter.style.background = "rgb(230, 23, 23)";
+                }
+                else if (x >= 5 && x <= 7) {
+                    meter.style.filter = "drop-shadow(0 0 2.5px rgb(234, 255, 2)) drop-shadow(0 0 10px rgb(234, 255, 2))";
+                    meter.style.background = "rgb(234, 255, 2)";
+                } else if (x < 5) {
+                     meter.style.filter = "drop-shadow(0 0 2.5px #0f0) drop-shadow(0 0 10px #0f0)";
+                    meter.style.background = "#0f0";
+                }
+                x += 1;
+                output.innerHTML = x;
+                meter.style.height = x*10+'%';
+            }
+            function minus() {
+                if (x <= 0) {
+                    return false;
+                } else if (x >= 9) {
+                    meter.style.filter = "drop-shadow(0 0 2.5px rgb(230, 23, 23)) drop-shadow(0 0 10px rgb(230, 23, 23))";
+                    meter.style.background = "rgb(230, 23, 23)";
+                }
+                else if (x > 5 && x <= 8) {
+                    meter.style.filter = "drop-shadow(0 0 2.5px rgb(234, 255, 2)) drop-shadow(0 0 10px rgb(234, 255, 2))";
+                    meter.style.background = "rgb(234, 255, 2)";
+                } else if (x <= 5) {
+                     meter.style.filter = "drop-shadow(0 0 2.5px #0f0) drop-shadow(0 0 10px #0f0)";
+                    meter.style.background = "#0f0";
+                }
+                x -= 1; 
+                output.innerHTML = x;
+                meter.style.height = x*10+'%';
+
+            }
+        </script>
+    </body>
+</html>

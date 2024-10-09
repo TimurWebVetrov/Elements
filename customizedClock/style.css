@@ -1,0 +1,130 @@
+/* Сброс стандартных стилей */
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Основные стили для body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #363636;
+}
+
+/* Стили для часов */
+#clock {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+/* Стили для кругов часов */
+#hrDots, #minDots, #secDots {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    rotate: 95deg; /* Поворот кругов */
+}
+
+/* Эффекты для кругов часов */
+#hrDots::before, #minDots::before, #secDots::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    box-shadow: 
+        25px 25px 75px rgba(0, 0, 0, 0.25),
+        10px 10px 70px rgba(0, 0, 0, 0.25),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+        inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+/* Стили для заголовков внутри кругов */
+#hrDots h2, #minDots h2, #secDots h2 {
+    transform: rotate(-95deg);
+    padding-top: 50px;
+    position: absolute;
+    text-align: center;
+    inset: 0;
+    color: var(--clr);
+    font-size: 4em;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Стили для спанов внутри заголовков */
+#hrDots span, #minDots span, #secDots span {
+    font-size: 0.25em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Стили для точек */
+#secDots, #minDots, #hrDots {
+    .dot {
+        position: absolute;
+        top: 50%;
+        width: 10px;
+        height: 3px;
+        background: var(--clr);
+        transform-origin: 100px;
+    }
+
+    .active.dot {
+        background: var(--clr);
+        box-shadow: 
+            0 0 10px var(--clr),
+            0 0 20px var(--clr),
+            0 0 30px var(--clr);
+    }
+
+    .active.dot ~ .dot {
+        background: #555;
+    }
+
+    /* Изменение ширины каждой пятой точки */
+    .dot:nth-child(5n+5) {
+        width: 20px;
+    }
+}
+
+/* Исключение для точек в hrDots */
+#hrDots .dot {
+    width: 20px; /* Увеличение ширины для точек в hrDots */
+}
+
+/* Стили для точек с псевдоэлементом */
+#hrDots .dot::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--clr);
+    box-shadow: 
+        1.5px 9px var(--clr),
+        4px 18px var(--clr),
+        7px 27px var(--clr);
+}
+
+/* Изменение стиля псевдоэлемента для активных точек */
+#hrDots .dot.active ~ .dot::before {
+    background: #555;
+    box-shadow: 
+        1.5px 9px var(--clr),
+        4px 18px var(--clr),
+        7px 27px var(--clr);
+}

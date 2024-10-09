@@ -1,0 +1,15 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+section {
+    position: relative;
+    height: 100vh;
+    background: url(./bg.jpg), url(./splash.jpg);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: screen;
+}

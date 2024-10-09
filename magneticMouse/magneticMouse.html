@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card" style="--clr:#ff6464">01</div>
+            <div class="card" style="--clr:#64c0ff">02</div>
+            <div class="card" style="--clr:#48e365">03</div>
+            <div class="card" style="--clr:#cb4af7">04</div>
+        </div>
+
+
+        <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+        <script src="index.js"></script>
+        <script>
+            let card = document.querySelectorAll(".card").forEach(cards => {
+                cards.addEventListener('mousemove', (e) => {
+                    let x = e.offsetX;
+                    let y = e.offsetY;
+                    let cardWidth = cards.clientWidth;
+                    let cardHeight = cards.clientHeight;
+                    let posX = (x - cardWidth / 2);
+                    let posY = (y - cardHeight / 2);
+                    cards.style.transform = `translateX(${posX}px) translateY(${posY}px)`;
+                })
+                cards.addEventListener('mouseleave', () => {
+                    cards.style.transform = ``;
+                })
+            })
+        </script>
+    </body>
+</html>
