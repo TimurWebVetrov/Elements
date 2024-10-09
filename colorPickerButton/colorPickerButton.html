@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="colors">
+            <span onclick="changeColor('greenyellow')" style="--clr:greenyellow"></span>
+            <span onclick="changeColor('red')" style="--clr:red"></span>
+            <span onclick="changeColor('orangered')" style="--clr:orangered"></span>
+            <span onclick="changeColor('blueviolet')" style="--clr:blueviolet"></span>
+            <span onclick="changeColor('blue')" style="--clr:blue"></span>
+        </div>
+        <div class="box"></div>
+
+        <script>
+            let box = document.querySelector('.box');
+            function changeColor(color) {
+                box.style.background = color;
+                document.querySelectorAll('span').forEach(function(item) {
+                    item.classList.remove('active');
+                });
+                event.target.classList.add('active');
+            }
+        </script>
+    </body>
+</html>

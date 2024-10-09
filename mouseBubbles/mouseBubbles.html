@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Bubbles</h2>
+        <img src="./soap.png" class="soap" alt="">
+
+        <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+        <script>
+            document.addEventListener('mousemove', () => {
+                let soap = document.querySelector('.soap');
+                soap.style.left = (event.pageX) + 'px';
+                soap.style.top = (event.pageY) + 'px';
+                let i = document.createElement('i');
+                i.style.left = (event.pageX) + 'px';
+                i.style.top = (event.pageY) + 'px';
+                i.style.scale = `${Math.random() *2 + 1}`;
+                i.style.setProperty('--x', getRandomPosition());
+                i.style.setProperty('--y', getRandomPosition());
+
+                function getRandomPosition() {
+                    return `${Math.random() * 400 - 200}px`;
+                }
+
+                document.body.appendChild(i);
+
+                setTimeout(() => {
+                    document.body.removeChild(i);
+                }, 2000)
+            })
+        </script>
+    </body>
+</html>

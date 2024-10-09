@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="menu">
+            <div class="menuToggle">
+                <ion-icon name="add"></ion-icon>
+
+            </div>
+            <li style="--i:0; --clr:#ff2972">
+                <a href="#">
+                    <ion-icon name="home"></ion-icon>
+                </a>
+            </li>
+            <li style="--i:1; --clr:#fee800">
+                <a href="#">
+                    <ion-icon name="person"></ion-icon>
+                </a>
+            </li>
+            <li style="--i:2; --clr:#04fc43">
+                <a href="#">
+                    <ion-icon name="settings"></ion-icon>
+                </a>
+            </li>
+            <li style="--i:3; --clr:#fe00f1">
+                <a href="#">
+                    <ion-icon name="mail"></ion-icon>
+                </a>
+            </li>
+            <li style="--i:4; --clr:#00b0fe">
+                <a href="#">
+                    <ion-icon name="key"></ion-icon>
+                </a>
+            </li>
+            <li style="--i:5; --clr:#fea600">
+                <a href="#">
+                    <ion-icon name="videocam"></ion-icon>
+                </a>
+            </li>
+            <li style="--i:6; --clr:#a529ff">
+                <a href="#">
+                    <ion-icon name="logo-game-controller-b"></ion-icon>
+                </a>
+            </li>
+            <li style="--i:7; --clr:#01bdab">
+                <a href="#">
+                    <ion-icon name="camera"></ion-icon>
+                </a>
+            </li>
+        </div>
+
+
+        <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+        <script>
+            let menuToggle = document.querySelector('.menuToggle');
+            let menu = document.querySelector('.menu');
+
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('active');
+            });
+        </script>
+    </body>
+</html>

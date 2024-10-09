@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="box">
+            <div class="group"></div>
+        </div>
+
+
+        <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+        <script>
+         const group = document.querySelector('.group');
+            for (let i = 0; i < 30; i++) {
+                const containerId = `iconContainer${i}`;
+                const container = document.createElement('div');
+                container.classList.add('iconContainer');
+                container.id = containerId;
+                group.appendChild(container);
+                addIcons(containerId); 
+            }
+
+            function addIcons(containerId) { 
+                const iconContainer = document.getElementById(containerId);
+                const Unicode = [
+                    '\uf001',
+                    '\uf002',
+                    '\uf003',
+                    '\uf004',
+                    '\uf005',
+                    '\uf006',
+                    '\uf007',
+                    '\uf008',
+                    '\uf009',
+                    '\uf010',
+                    '\uf011',
+                    '\uf012',
+                    '\uf013',
+                    '\uf014',
+                    '\uf015',
+                    '\uf016',
+                    '\uf017',
+                    '\uf018',
+                    '\uf019',
+                    '\uf021',
+                ];
+
+                for (let i = 0; i < 80; i++) {
+                    const icon = document.createElement('i');
+                    icon.classList.add('icon', 'fas'); 
+                    icon.innerHTML = randomIcon(Unicode);
+                    iconContainer.appendChild(icon);
+                }
+            }
+
+            function randomIcon(values) {
+                const randomIndex = Math.floor(Math.random() * values.length);
+                return values[randomIndex];
+            }
+        </script>
+    </body>
+</html>

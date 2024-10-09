@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="slider">
+                <div class="slides" style="--img:url('./img/1bg.jpg')">
+                    <div class="content">
+                        <h2>Slide 01</h2>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat aspernatur est iste qui illum laudantium, reiciendis debitis consectetur necessitatibus asperiores. Culpa illo eaque sapiente nihil esse, magni rem et optio.
+                        </p>
+                    </div>
+                </div>
+                <div class="slides" style="--img:url('./img/2bg.jpg')">
+                    <div class="content">
+                        <h2>Slide 02</h2>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat aspernatur est iste qui illum laudantium, reiciendis debitis consectetur necessitatibus asperiores. Culpa illo eaque sapiente nihil esse, magni rem et optio.
+                        </p>
+                    </div>
+                </div>
+                <div class="slides" style="--img:url('./img/3bg.jpg')">
+                    <div class="content">
+                        <h2>Slide 03</h2>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat aspernatur est iste qui illum laudantium, reiciendis debitis consectetur necessitatibus asperiores. Culpa illo eaque sapiente nihil esse, magni rem et optio.
+                        </p>
+                    </div>
+                </div>
+                <div class="slides" style="--img:url('./img/4bg.jpg')">
+                    <div class="content">
+                        <h2>Slide 04</h2>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat aspernatur est iste qui illum laudantium, reiciendis debitis consectetur necessitatibus asperiores. Culpa illo eaque sapiente nihil esse, magni rem et optio.
+                        </p>
+                    </div>
+                </div>
+                <div class="slides" style="--img:url('./img/bg1.jpg')">
+                    <div class="content">
+                        <h2>Slide 05</h2>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat aspernatur est iste qui illum laudantium, reiciendis debitis consectetur necessitatibus asperiores. Culpa illo eaque sapiente nihil esse, magni rem et optio.
+                        </p>
+                    </div>
+                </div>
+                <div class="slides" style="--img:url('./img/bg3.jpg')">
+                    <div class="content">
+                        <h2>Slide 06</h2>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat aspernatur est iste qui illum laudantium, reiciendis debitis consectetur necessitatibus asperiores. Culpa illo eaque sapiente nihil esse, magni rem et optio.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <span class="prev"></span>
+                <span class="next"></span>
+            </div>
+        </div>
+
+
+        <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+        <script src="index.js"></script>
+
+        <script>
+            let next = document.querySelector('.next');
+            let prev = document.querySelector('.prev');
+            let slider = document.querySelector('.slider');
+
+            next.addEventListener('click', function() {
+                let slides = document.querySelectorAll('.slides');
+                slider.appendChild(slides[0]);
+            })
+
+            prev.addEventListener('click', function() {
+                let slides = document.querySelectorAll('.slides');
+                slider.prepend(slides[slides.length - 1]);
+            })
+        </script>
+    </body>
+</html>

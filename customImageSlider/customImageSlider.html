@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="slider">
+            <div class="slides active" data-text="Apple" data-color="#fc4a55" onclick="showBigImage(this)">
+                <img src="./img/apple.png" alt="">
+            </div>
+            <div class="slides" data-text="Dragon fruit" data-color="#fb6cb2" onclick="showBigImage(this)">
+                <img src="./img/dragon.webp" alt="">
+            </div>
+            <div class="slides" data-text="Lemon" data-color="yellow" onclick="showBigImage(this)">
+                <img src="./img/limon.png" alt="">
+            </div>
+            <div class="slides" data-text="PineApple" data-color="orange" onclick="showBigImage(this)">
+                <img src="./img/ananas.webp" alt="">
+            </div>
+            <div class="slides" data-text="Watermelon" data-color="#92ba3c" onclick="showBigImage(this)">
+                <img src="./img/arbuz.png" alt="">
+            </div>
+        </div>
+        <h2 class="text">Apple</h2>
+        <div class="bigImage">
+            <img src="./img/apple.png" id="bigImage" alt="">
+        </div>
+
+
+        <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+        <script src="index.js"></script>
+
+        <script>
+        function showBigImage(slides) {
+            let bigImage = document.getElementById("bigImage");
+            let img = slides.querySelector('img');
+            let h2 = document.querySelector('h2');
+            let color = slides.dataset.color;
+            let text = slides.dataset.text;
+
+            bigImage.src = img.src;
+            document.body.style.backgroundColor = color;
+            h2.textContent = text;
+
+            let sliderEl = document.querySelectorAll('.slides');
+            sliderEl.forEach(el => {
+                el.classList.remove('active');
+            });
+
+            slides.classList.add('active');
+        } 
+        </script>   
+    </body>
+</html>
